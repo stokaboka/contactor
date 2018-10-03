@@ -1,5 +1,4 @@
 import { UserDetail } from './user-detail';
-import {User} from './user';
 
 export const USERS_DETAILS: UserDetail[] = [
   { id: '1', age: 73, city: 'Somerset', info: 'Richard Hugh Blackmore (born 14 April 1945) is an English guitarist and songwriter. He was one of the founding members of Deep Purple in 1968, playing jam-style hard-rock music which mixed guitar riffs and organ sounds. During his solo career he established the heavy metal band Rainbow, which fused baroque music influences and elements of hard rock. Rainbow steadily moved to catchy pop-style mainstream rock. Later in life, he formed the traditional folk rock project Blackmore\'s Night, transitioning to vocalist-centred sounds. As a member of Deep Purple, Blackmore was inducted into the Rock and Roll Hall of Fame in April 2016.'},
