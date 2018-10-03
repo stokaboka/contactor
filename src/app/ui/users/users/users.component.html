@@ -1,10 +1,8 @@
-<p>
-  users works!
-</p>
 <h2>Users</h2>
-<ul>
-  <app-user
+<ul class="users_list">
+  <app-user class="users_list_item"
     *ngFor="let user of users"
-    (click)="onClick(user)">
+    (click)="onClick(user)"
+    [user]="user">
   </app-user>
 </ul>

@@ -9,6 +9,10 @@ import { MessageComponent } from './ui/messages/message/message.component';
 import { MessagesComponent } from './ui/messages/messages/messages.component';
 import { UserEditorComponent } from './ui/users/user-editor/user-editor.component';
 import { MessageEditorComponent } from './ui/messages/message-editor/message-editor.component';
+import { HeaderComponent } from './ui/layout/header/header.component';
+import { FooterComponent } from './ui/layout/footer/footer.component';
+import { MainPanelComponent } from './ui/layout/main-panel/main-panel.component';
+import { UserDetailComponent } from './ui/users/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +23,10 @@ import { MessageEditorComponent } from './ui/messages/message-editor/message-edi
     MessagesComponent,
     UserEditorComponent,
     MessageEditorComponent,
+    HeaderComponent,
+    FooterComponent,
+    MainPanelComponent,
+    UserDetailComponent,
   ],
   imports: [
     BrowserModule,

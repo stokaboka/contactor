@@ -1,0 +1,10 @@
+.header-title-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: start;
+  align-items: start;
+}
+
+.header-title-description {
+  font-size: 0.8rem;
+}
