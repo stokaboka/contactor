@@ -1,3 +1,39 @@
-<p>
-  user-detail works!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <app-users [user]="user">
+      </app-users>
+    </div>
+    <div class="col-sm">
+
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">User details</h2>
+
+          <div class="user-detail-container-row">
+            <img *ngIf="user.image" class="user-detail-image"  src="{{user.image}}" alt="Card image cap">
+
+            <div class="user-detail-properties">
+
+              <div *ngFor="let userProp of userProperties" class="user-detail-container-row">
+                <div class="user-detail-label">{{ userProp.label }}</div>
+                <div class="user-detail-property">{{ user[ userProp.property ] }}</div>
+              </div>
+
+              <div *ngFor="let userDetailProp of userDetailProperties" class="user-detail-container-row">
+                <div class="user-detail-label">{{ userDetailProp.label }}</div>
+                <div class="user-detail-property">{{ userDetail[ userDetailProp.property ] }}</div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="user-detail-info">{{ userDetail.info }}</div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

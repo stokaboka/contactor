@@ -1,8 +1,19 @@
-<h2>Users</h2>
-<ul class="users_list">
-  <app-user class="users_list_item"
-    *ngFor="let user of users"
-    (click)="onClick(user)"
-    [user]="user">
-  </app-user>
-</ul>
+<div class="card">
+
+  <div class="card-body">
+
+    <h2 class="card-title">Users</h2>
+
+    <ul class="users_list">
+      <app-user
+        class="users_list_item"
+        *ngFor="let usr of users"
+        (click)="onClick(usr)"
+        [class.selected]="usr.id === user.id"
+        [user]="usr">
+      </app-user>
+    </ul>
+
+  </div>
+
+</div>

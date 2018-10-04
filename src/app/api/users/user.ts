@@ -4,6 +4,7 @@ export class User {
   firstName: String;
   middleName: String = '';
   lastName: String;
+  image: String;
 
   constructor(
     id: String,
@@ -11,12 +12,14 @@ export class User {
     firstName: String,
     middleName: String,
     lastName: String,
+    image: String
   ) {
     this.id = id;
     this.nickName = nickName;
     this.firstName = firstName;
     this.middleName = middleName;
     this.lastName = lastName;
+    this.image = image;
   }
 
 }

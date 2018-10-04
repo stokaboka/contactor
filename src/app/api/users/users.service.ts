@@ -13,7 +13,20 @@ export class UsersService {
   // users: Observable<User[]>;
   // userDetails: Observable<UserDetail[]>;
 
-  constructor() { }
+  constructor() {}
+
+  userProperties = [
+    { label: 'псевдоним', property: 'nickName'},
+    { label: 'фамилия', property: 'firstName'},
+    { label: 'имя', property: 'middleName'},
+    { label: 'отчество', property: 'lastName'}
+  ];
+
+  userDetailProperties = [
+    { label: 'возраст', property: 'age'},
+    { label: 'город', property: 'city'}
+    // { label: 'информация', property: 'info'}
+  ];
 
   // init() {
   //   this.users = this.getUsers();
@@ -28,7 +41,11 @@ export class UsersService {
     return of(USERS_DETAILS);
   }
 
-  // getUserDetail(id: String): UserDetail {
-  //   return this.userDetails.find( element => element.id === id );
-  // }
+  getUser(id: String): User {
+      return USERS.find( element => element.id === id );
+  }
+
+  getUserDetail(id: String): UserDetail {
+    return USERS_DETAILS.find( element => element.id === id );
+  }
 }

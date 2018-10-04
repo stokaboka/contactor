@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {User} from '../../../api/users/user';
 
 import { UsersService } from '../../../api/users/users.service';
@@ -11,14 +12,18 @@ import {Observable} from 'rxjs';
 })
 export class UsersComponent implements OnInit {
 
+  @Input() user: User;
+
   users: Array<User>;
-  user: User;
 
   constructor(
+    private route: ActivatedRoute,
     private usersService: UsersService
   ) { }
 
   ngOnInit() {
+    const id: String = this.route.snapshot.paramMap.get('id');
+    this.user = this.usersService.getUser( id );
     this.init();
   }
 
@@ -28,7 +33,6 @@ export class UsersComponent implements OnInit {
 
   onUsersCollectionChanged(users: Array<User>): void {
     this.users = users;
-    this.user = this.users.length > 0 ? this.users[0] : null;
   }
 
   init(): void {

@@ -1,0 +1,49 @@
+
+.user-detail-container-row,
+.user-detail-container-column
+{
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+
+/*
+TODO change flex-flow: column;
+for small screen
+*/
+.user-detail-container-row {
+  flex-flow: row;
+}
+
+.user-detail-container-column {
+  flex-flow: column;
+}
+
+.user-detail-label,
+.user-detail-property
+{
+  margin: 1px 3px;
+}
+
+.user-detail-label {
+  text-align: end;
+  width: 100px;
+}
+
+.user-detail-property {
+  font-weight: bold;
+  text-align: start;
+}
+
+.user-detail-properties {
+  margin: 0px 20px;
+}
+
+.user-detail-image {
+  max-width: 400px;
+}
+
+
+.user-detail-info {
+  margin: 20px 0px;
+}

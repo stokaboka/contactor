@@ -1,5 +1,7 @@
 <li>
-  <span class="user_nickname">{{ user.nickName }}</span>
-  <span class="user_names">{{ user.firstName }}</span>
-  <span class="user_names">{{ user.lastName }}</span>
+  <a routerLink="/user/{{user.id}}">
+    <span class="user_nickname">{{ user.nickName }}</span>
+    <span class="user_names">{{ user.firstName }}</span>
+    <span class="user_names">{{ user.lastName }}</span>
+  </a>
 </li>
