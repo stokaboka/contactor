@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/users', pathMatch: 'full' },
   { path: 'users', component: UsersComponent },
   { path: 'user/:id', component: MainPanelComponent },
-  { path: 'messenger', component: MainPanelComponent },
+  { path: 'messenger', component: UsersComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactsComponent },
 ];

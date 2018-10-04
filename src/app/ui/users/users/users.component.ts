@@ -22,8 +22,6 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id: String = this.route.snapshot.paramMap.get('id');
-    this.user = this.usersService.getUser( id );
     this.init();
   }
 
@@ -33,6 +31,12 @@ export class UsersComponent implements OnInit {
 
   onUsersCollectionChanged(users: Array<User>): void {
     this.users = users;
+    const id: String = this.route.snapshot.paramMap.get('id');
+    if ( id ) {
+      this.user = this.usersService.getUser(id);
+    } else {
+      this.user = this.usersService.getUser('1');
+    }
   }
 
   init(): void {
