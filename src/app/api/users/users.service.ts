@@ -10,21 +10,25 @@ import {USERS_DETAILS} from './mock-user-detail';
 })
 export class UsersService {
 
-  users: Observable<User[]>;
-  userDetails: Observable<UserDetail[]>;
+  // users: Observable<User[]>;
+  // userDetails: Observable<UserDetail[]>;
 
   constructor() { }
 
-  init() {
-    this.users = this.getUsers();
-    this.userDetails = this.getUserDetails();
-  }
+  // init() {
+  //   this.users = this.getUsers();
+  //   this.userDetails = this.getUsersDetails();
+  // }
 
   getUsers(): Observable<User[]> {
     return of(USERS);
   }
 
-  getUserDetails(): Observable<UserDetail[]> {
+  getUsersDetails(): Observable<UserDetail[]> {
     return of(USERS_DETAILS);
   }
+
+  // getUserDetail(id: String): UserDetail {
+  //   return this.userDetails.find( element => element.id === id );
+  // }
 }

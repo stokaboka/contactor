@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { USERS } from '../../../api/users/mock-users';
 import {User} from '../../../api/users/user';
 
 import { UsersService } from '../../../api/users/users.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-users',
@@ -11,7 +11,7 @@ import { UsersService } from '../../../api/users/users.service';
 })
 export class UsersComponent implements OnInit {
 
-  users = USERS;
+  users: Array<User>;
   user: User;
 
   constructor(
@@ -26,11 +26,16 @@ export class UsersComponent implements OnInit {
     this.user = user;
   }
 
+  onUsersCollectionChanged(users: Array<User>): void {
+    this.users = users;
+    this.user = this.users.length > 0 ? this.users[0] : null;
+  }
+
   init(): void {
     this.usersService.getUsers()
-      .subscribe(users => {
-        this.users = users;
-        this.user = this.users.length > 0 ? this.users[0] : null;
-      });
+    .subscribe({
+      next: users => this.onUsersCollectionChanged(users)
+    });
+
   }
 }
