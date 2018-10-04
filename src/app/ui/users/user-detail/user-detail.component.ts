@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { UsersService } from '../../../api/users/users.service';
@@ -12,7 +12,8 @@ import {UserDetail} from '../../../api/users/user-detail';
 })
 export class UserDetailComponent implements OnInit {
 
-  user: User;
+  @Input() user: User;
+
   userDetail: UserDetail;
 
   userProperties: Array<any>;
@@ -29,12 +30,12 @@ export class UserDetailComponent implements OnInit {
     this.userProperties = this.usersService.userProperties;
     this.userDetailProperties = this.usersService.userDetailProperties;
 
-    const id: String = this.route.snapshot.paramMap.get('id');
-    this.getUsersDetails( id );
+    // const id: String = this.route.snapshot.paramMap.get('id');
+    this.getUsersDetails( this.user.id );
   }
 
   getUsersDetails( id ): void {
-    this.user = this.usersService.getUser( id );
+    // this.user = this.usersService.getUser( id );
     this.userDetail = this.usersService.getUserDetail( id );
   }
 

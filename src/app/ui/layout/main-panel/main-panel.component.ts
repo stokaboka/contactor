@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { Router, ActivatedRoute, RouterEvent } from '@angular/router';
 import { Location } from '@angular/common';
+
+import { UsersService } from '../../../api/users/users.service';
+import {User} from '../../../api/users/user';
+import {UserDetail} from '../../../api/users/user-detail';
 
 @Component({
   selector: 'app-main-panel',
@@ -9,27 +13,24 @@ import { Location } from '@angular/common';
 })
 export class MainPanelComponent implements OnInit {
 
+  @Input() user: User;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private usersService: UsersService
   ) {
 
-    // router.events.subscribe({
-    //   next: e => console.log(e)
-    // });
-
-    // router.events.filter(e => e instanceof RouterEvent).subscribe(e => {
-    //   console.log(e.id, e.url);
-    // });
   }
 
   ngOnInit() {
-    // console.log(this.route);
-    // console.log(this.location);
-    // this.router.events.subscribe({
-    //   next: e => console.log(e)
-    // });
+
+    const id: String = this.route.snapshot.paramMap.get('id');
+    this.getUser( id );
   }
 
+  getUser( id ): void {
+    this.user = this.usersService.getUser( id );
+  }
 }

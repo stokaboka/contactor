@@ -1,2 +1,17 @@
-<app-users class="users_list">
-</app-users>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm">
+      <app-users [user]="user">
+      </app-users>
+    </div>
+    <div class="col-sm">
+
+      <div class="col-sm">
+        <app-user-detail [user]="user">
+        </app-user-detail>
+      </div>
+
+    </div>
+  </div>
+</div>
