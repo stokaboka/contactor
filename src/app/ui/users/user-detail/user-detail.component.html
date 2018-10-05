@@ -1,18 +1,14 @@
       <div class="card">
-        <div class="card-body">
-          <h2 class="card-title">User details</h2>
 
-          <div class="user-detail-container-row">
-            <img *ngIf="user.image" class="user-detail-image"  src="{{user.image}}" alt="Card image cap">
+        <h2 class="card-header">
+          {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
+        </h2>
+
+        <div class="card-body">
+
+          <img *ngIf="user.image" class="card-img-top rounded user-detail-image"  src="{{user.image}}" alt="{{ user.firstName }}">
 
             <div class="user-detail-properties">
-
-              <div *ngFor="let userProp of userProperties">
-                <div *ngIf="user[ userProp.property ]" class="user-detail-container-row">
-                  <div class="user-detail-label">{{ userProp.label }}</div>
-                  <div class="user-detail-property">{{ user[ userProp.property ] }}</div>
-                </div>
-              </div>
 
               <div *ngFor="let userDetailProp of userDetailProperties">
                 <div *ngIf="detail[ userDetailProp.property ]" class="user-detail-container-row">
@@ -23,9 +19,10 @@
 
             </div>
 
-          </div>
-
           <div class="user-detail-info">{{ detail.info }}</div>
 
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn btn-secondary" routerLink="/send/{{ user.id }}">Send message</button>
         </div>
       </div>

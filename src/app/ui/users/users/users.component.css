@@ -1,4 +1,5 @@
 .users_list {
+  padding-left: 0;
 }
 
 .users_list_item {
@@ -6,6 +7,5 @@
 }
 
 .selected {
-  font-weight: bold;
-  font-style: italic;
+  background: azure;
 }

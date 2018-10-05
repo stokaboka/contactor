@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { UsersService } from '../../../api/users/users.service';
 import {User} from '../../../api/users/user';
@@ -21,6 +21,7 @@ export class UserDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private location: Location,
     private usersService: UsersService
   ) {
@@ -31,4 +32,7 @@ export class UserDetailComponent implements OnInit {
     this.userDetailProperties = this.usersService.userDetailProperties;
   }
 
+  sendMessage(): void {
+    this.router.navigate([ '/send', { id: this.user.id } ] );
+  }
 }

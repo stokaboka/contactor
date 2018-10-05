@@ -16,3 +16,19 @@ export class UserComponent implements OnInit {
   }
 
 }
+
+/*
+
+          <div class="row">
+            <span class="col user_names">{{ user.firstName }}</span>
+            <span class="col user_names">{{ user.middleName }}</span>
+            <span class="col user_names">{{ user.lastName }}</span>
+          </div>
+
+<span class="col user_nickname">{{ user.nickName }}</span>
+
+    <div class="col">
+      <img src="{{ user.image }}" class="user-list-item-image">
+    </div>
+
+ */

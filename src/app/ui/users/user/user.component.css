@@ -1,31 +1,30 @@
-.user_nickname,
-.user_names {
-  font-size: 1rem;
-  margin: 1px 3px;
-}
-
-.user_nickname {
-  font-weight: bold;
+a {
+  text-decoration: none;
 }
 
 li {
   list-style-type: none;
 }
 
-.users-list-item-deco {
-  padding: 4px 10px;
-}
-
 li:hover {
   background: #343a40;
 }
 
+.user_nickname,
+.user_names {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.users-list-item-deco {
+  padding: 10px 20px;
+}
+
 .users-list-item-deco:hover span {
-  background: #343a40;
   color: white;
 }
 
 .user-list-item-image {
-  width: 80px;
+  width: 100px;
   height: auto;
 }

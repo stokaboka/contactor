@@ -1,21 +1,10 @@
 <li class="users-list-item-deco">
   <a routerLink="/user/{{user.id}}" class="row">
     <div class="col">
-      <img src="{{ user.image }}" class="user-list-item-image">
+      <img  class="user-list-item-image img-thumbnail" src="{{ user.image }}">
     </div>
-
-    <div class="col">
-      <div class="row">
-        <span class="col user_nickname">{{ user.nickName }}</span>
-        <div class="col">
-          <div class="row">
-            <span class="col user_names">{{ user.firstName }}</span>
-            <span class="col user_names">{{ user.middleName }}</span>
-            <span class="col user_names">{{ user.lastName }}</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    <span class="col user_names">
+      {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
+    </span>
   </a>
 </li>

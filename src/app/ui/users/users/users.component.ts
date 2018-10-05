@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import {User} from '../../../api/users/user';
 
 import { UsersService } from '../../../api/users/users.service';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-users',
