@@ -22,28 +22,16 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.init();
+    this.usersService.getUsers()
+      .subscribe({
+        next: users => this.users = users
+      });
   }
 
   onClick(user: User): void {
     this.user = user;
   }
 
-  onUsersCollectionChanged(users: Array<User>): void {
-    this.users = users;
-    const id: String = this.route.snapshot.paramMap.get('id');
-    if ( id ) {
-      this.user = this.usersService.getUser(id);
-    } else {
-      this.user = this.usersService.getUser('1');
-    }
-  }
-
-  init(): void {
-    this.usersService.getUsers()
-    .subscribe({
-      next: users => this.onUsersCollectionChanged(users)
-    });
-
-  }
 }
+
+// [class.selected]="usr.id === user.id"

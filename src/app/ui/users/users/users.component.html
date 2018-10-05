@@ -9,7 +9,6 @@
         class="users_list_item"
         *ngFor="let usr of users"
         (click)="onClick(usr)"
-        [class.selected]="usr.id === user.id"
         [user]="usr">
       </app-user>
     </ul>

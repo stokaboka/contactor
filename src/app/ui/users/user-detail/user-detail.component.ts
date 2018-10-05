@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { UsersService } from '../../../api/users/users.service';
 import {User} from '../../../api/users/user';
 import {UserDetail} from '../../../api/users/user-detail';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-user-detail',
@@ -13,8 +14,7 @@ import {UserDetail} from '../../../api/users/user-detail';
 export class UserDetailComponent implements OnInit {
 
   @Input() user: User;
-
-  userDetail: UserDetail;
+  @Input() detail: UserDetail;
 
   userProperties: Array<any>;
   userDetailProperties: Array<any>;
@@ -29,14 +29,6 @@ export class UserDetailComponent implements OnInit {
   ngOnInit() {
     this.userProperties = this.usersService.userProperties;
     this.userDetailProperties = this.usersService.userDetailProperties;
-
-    // const id: String = this.route.snapshot.paramMap.get('id');
-    this.getUsersDetails( this.user.id );
-  }
-
-  getUsersDetails( id ): void {
-    // this.user = this.usersService.getUser( id );
-    this.userDetail = this.usersService.getUserDetail( id );
   }
 
 }

@@ -7,21 +7,25 @@
 
             <div class="user-detail-properties">
 
-              <div *ngFor="let userProp of userProperties" class="user-detail-container-row">
-                <div class="user-detail-label">{{ userProp.label }}</div>
-                <div class="user-detail-property">{{ user[ userProp.property ] }}</div>
+              <div *ngFor="let userProp of userProperties">
+                <div *ngIf="user[ userProp.property ]" class="user-detail-container-row">
+                  <div class="user-detail-label">{{ userProp.label }}</div>
+                  <div class="user-detail-property">{{ user[ userProp.property ] }}</div>
+                </div>
               </div>
 
-              <div *ngFor="let userDetailProp of userDetailProperties" class="user-detail-container-row">
-                <div class="user-detail-label">{{ userDetailProp.label }}</div>
-                <div class="user-detail-property">{{ userDetail[ userDetailProp.property ] }}</div>
+              <div *ngFor="let userDetailProp of userDetailProperties">
+                <div *ngIf="detail[ userDetailProp.property ]" class="user-detail-container-row">
+                  <div class="user-detail-label">{{ userDetailProp.label }}</div>
+                  <div class="user-detail-property">{{ detail[ userDetailProp.property ] }}</div>
+                </div>
               </div>
 
             </div>
 
           </div>
 
-          <div class="user-detail-info">{{ userDetail.info }}</div>
+          <div class="user-detail-info">{{ detail.info }}</div>
 
         </div>
       </div>

@@ -1,6 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { Router, ActivatedRoute, RouterEvent } from '@angular/router';
+import {Component, Input, OnInit, OnDestroy} from '@angular/core';
+import { Router, ActivatedRoute, RouterEvent, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
+import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { UsersService } from '../../../api/users/users.service';
 import {User} from '../../../api/users/user';
@@ -11,9 +13,12 @@ import {UserDetail} from '../../../api/users/user-detail';
   templateUrl: './main-panel.component.html',
   styleUrls: ['./main-panel.component.css']
 })
-export class MainPanelComponent implements OnInit {
+export class MainPanelComponent implements OnInit, OnDestroy {
 
   @Input() user: User;
+
+  user$: Observable<User>;
+  detail$: Observable<UserDetail>;
 
   constructor(
     private router: Router,
@@ -26,11 +31,20 @@ export class MainPanelComponent implements OnInit {
 
   ngOnInit() {
 
-    const id: String = this.route.snapshot.paramMap.get('id');
-    this.getUser( id );
+    this.user$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.usersService.getUser( params.get('id') )
+    ));
+
+    this.detail$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.usersService.getUserDetail( params.get('id') )
+      ));
+
   }
 
-  getUser( id ): void {
-    this.user = this.usersService.getUser( id );
+  ngOnDestroy() {
+
   }
+
 }

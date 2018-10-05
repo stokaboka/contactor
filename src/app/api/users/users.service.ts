@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
+
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { User } from './user';
 import { USERS } from './mock-users';
+
 import {UserDetail} from './user-detail';
 import {USERS_DETAILS} from './mock-user-detail';
 
@@ -15,23 +19,31 @@ export class UsersService {
 
   constructor() {}
 
+  // userProperties = [
+  //   { label: 'псевдоним', property: 'nickName'},
+  //   { label: 'фамилия', property: 'firstName'},
+  //   { label: 'имя', property: 'middleName'},
+  //   { label: 'отчество', property: 'lastName'}
+  // ];
+  //
+  // userDetailProperties = [
+  //   { label: 'возраст', property: 'age'},
+  //   { label: 'город', property: 'city'}
+  //   // { label: 'информация', property: 'info'}
+  // ];
+
   userProperties = [
-    { label: 'псевдоним', property: 'nickName'},
-    { label: 'фамилия', property: 'firstName'},
-    { label: 'имя', property: 'middleName'},
-    { label: 'отчество', property: 'lastName'}
+    { label: 'nickname', property: 'nickName'},
+    { label: 'first name', property: 'firstName'},
+    { label: 'middle name', property: 'middleName'},
+    { label: 'last name', property: 'lastName'}
   ];
 
   userDetailProperties = [
-    { label: 'возраст', property: 'age'},
-    { label: 'город', property: 'city'}
+    { label: 'age', property: 'age'},
+    { label: 'city', property: 'city'}
     // { label: 'информация', property: 'info'}
   ];
-
-  // init() {
-  //   this.users = this.getUsers();
-  //   this.userDetails = this.getUsersDetails();
-  // }
 
   getUsers(): Observable<User[]> {
     return of(USERS);
@@ -41,11 +53,16 @@ export class UsersService {
     return of(USERS_DETAILS);
   }
 
-  getUser(id: String): User {
-      return USERS.find( element => element.id === id );
+  getUser(id: string) {
+    return this.getUsers().pipe(
+      map((users: User[]) => users.find(user => user.id === id))
+    );
   }
 
-  getUserDetail(id: String): UserDetail {
-    return USERS_DETAILS.find( element => element.id === id );
+  getUserDetail(id: string) {
+    return this.getUsersDetails().pipe(
+      map((details: UserDetail[]) => details.find(user => user.id === id))
+    );
   }
+
 }

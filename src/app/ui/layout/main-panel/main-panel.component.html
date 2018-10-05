@@ -1,17 +1,14 @@
-<div class="container">
-  <div class="row">
+  <div *ngIf="user$ | async" class="row">
 
-    <div class="col-sm">
-      <app-users [user]="user">
-      </app-users>
+    <div  class="col">
+      <app-users [user]="user$ | async"></app-users>
     </div>
-    <div class="col-sm">
 
-      <div class="col-sm">
-        <app-user-detail [user]="user">
-        </app-user-detail>
+    <div class="col">
+
+      <div *ngIf="detail$ | async" class="col">
+        <app-user-detail [user]="user$ | async" [detail]="detail$ | async"></app-user-detail>
       </div>
 
     </div>
   </div>
-</div>

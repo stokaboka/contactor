@@ -11,3 +11,21 @@
 li {
   list-style-type: none;
 }
+
+.users-list-item-deco {
+  padding: 4px 10px;
+}
+
+li:hover {
+  background: #343a40;
+}
+
+.users-list-item-deco:hover span {
+  background: #343a40;
+  color: white;
+}
+
+.user-list-item-image {
+  width: 80px;
+  height: auto;
+}
