@@ -17,6 +17,7 @@ import { UserDetailComponent } from './ui/users/user-detail/user-detail.componen
 import { AboutComponent } from './ui/about/about/about.component';
 import { ContactsComponent } from './ui/about/contacts/contacts.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FirstSymbolPipe } from './utils/first-symbol.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
     UserDetailComponent,
     AboutComponent,
     ContactsComponent,
+    FirstSymbolPipe,
   ],
   imports: [
     BrowserModule,
