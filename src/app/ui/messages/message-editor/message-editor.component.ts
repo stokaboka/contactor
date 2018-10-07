@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, Output, OnInit, EventEmitter} from '@angular/core';
 import {Message} from '../../../api/messages/message';
 import {MessagesService} from '../../../api/messages/messages.service';
-import {Observable} from 'rxjs';
+
 import {User} from '../../../api/users/user';
 
 @Component({
@@ -12,6 +12,7 @@ import {User} from '../../../api/users/user';
 export class MessageEditorComponent implements OnInit {
 
   @Input() user: User;
+  @Output() messageSend = new EventEmitter<Message>();
 
   message: Message;
 
@@ -26,7 +27,10 @@ export class MessageEditorComponent implements OnInit {
   onSubmit() {
     this.messagesService.sendMessage(this.message)
       .subscribe({
-        next: message => this.message = message
+        next: message => {
+          this.messageSend.emit(message);
+          this.message = new Message('contactor', this.user.id, new Date(), '!!!');
+        }
       });
 
   }

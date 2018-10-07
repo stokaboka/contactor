@@ -30,6 +30,7 @@ export class MainPanelComponent implements OnInit, OnDestroy {
   detail$: Observable<UserDetail>;
 
   messages$: Observable<Message[]>;
+  messages: Message[];
 
   navEnd: Observable<NavigationEnd>;
 
@@ -69,6 +70,16 @@ export class MainPanelComponent implements OnInit, OnDestroy {
         this.messagesService.getMessages( 'contactor', params.get('id') )
       ));
 
+  }
+
+  onMessageSend(message: Message) {
+    if (this.messages$) {
+      this.messages$.subscribe(
+        {
+          next: messages => this.messages = messages
+        }
+      );
+    }
   }
 
   ngOnDestroy() {

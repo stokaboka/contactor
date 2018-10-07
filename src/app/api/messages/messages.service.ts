@@ -3,9 +3,11 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Message} from './message';
+import {RequestOptions} from '@angular/http';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  // headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })
 };
 
 @Injectable({
@@ -36,8 +38,11 @@ export class MessagesService {
   }
 
   sendMessage(message: Message): Observable<Message> {
-    const url = `${this.apiUrlSendMassage}`;
-    return this.http.post<Message>(url, message, httpOptions).pipe(
+
+    const url = `${this.apiUrlSendMassage}?from=${message.from}&to=${message.to}&text=${message.text}`;
+    return this.http.get<Message>(url)
+    // return this.http.post<Message>(this.apiUrlSendMassage, message, httpOptions)
+      .pipe(
       tap(_ => MessagesService.log(`added message w/ from=${message.from} to=${message.to}`)),
       catchError(this.handleError<Message>('MessagesService::sendMessage'))
     );

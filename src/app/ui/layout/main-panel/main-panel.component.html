@@ -27,7 +27,10 @@
         <div *ngIf="(messages$ | async) as messages; else loading">
           <app-messages [user]="user" [messages]="messages"></app-messages>
         </div>
-        <app-message-editor [user]="user"></app-message-editor>
+        <app-message-editor
+          [user]="user"
+          (messageSend) = "onMessageSend($event)">
+        </app-message-editor>
      </div>
    </div>
 
