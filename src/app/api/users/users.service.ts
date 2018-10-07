@@ -57,6 +57,25 @@ export class UsersService {
     console.log(`UsersService: ${message}`);
   }
 
+  static getDisplayMode(path: String): String {
+
+    if ( path.startsWith( '/send/' ) ) {
+      return 'send';
+    }
+
+    if ( path.startsWith( '/user/' ) ) {
+      return 'user';
+    }
+
+    return 'users';
+
+    // if ( path.startsWith( '/send/' ) ) {
+    //   return 'send';
+    // } else {
+    //   return 'users';
+    // }
+  }
+
   getUsers(): Observable<User[]> {
       return this.http.get<User[]>(this.apiUrlUsers)
         .pipe(

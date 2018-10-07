@@ -1,11 +1,34 @@
-  <div *ngIf="user$ | async" class="row">
-
-    <div  class="col">
-      <app-users [user]="user$ | async"></app-users>
+ <div class="row">
+    <div  [class.col]="mode === MODE_USERS"
+          [class.col-6]="mode === MODE_USER"
+          [class.col-3]="mode === MODE_SEND"
+    >
+      <app-users [users]="users" [mode]="mode"></app-users>
     </div>
 
-     <div *ngIf="detail$ | async" class="col">
-       <app-user-detail [user]="user$ | async" [detail]="detail$ | async"></app-user-detail>
+   <div *ngIf="mode === MODE_USER"
+        [class.col]="mode === MODE_USERS"
+        [class.col-6]="mode === MODE_USER"
+        [class.col-9]="mode === MODE_SEND"
+   >
+     <div *ngIf="(user$ | async) as user; else loading">
+       <div *ngIf="(detail$ | async) as detail">
+         <app-user-detail [user]="user" [detail]="detail"></app-user-detail>
+       </div>
      </div>
+   </div>
 
-  </div>
+   <div *ngIf="mode === MODE_SEND"
+        [class.col]="mode === MODE_USERS"
+        [class.col-6]="mode === MODE_USER"
+        [class.col-9]="mode === MODE_SEND"
+   >
+     <app-messages></app-messages>
+     <app-message-editor></app-message-editor>
+   </div>
+
+
+ </div>
+
+  <ng-template #loading>
+  </ng-template>

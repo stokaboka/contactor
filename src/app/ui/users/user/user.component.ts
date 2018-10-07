@@ -8,7 +8,12 @@ import {User} from '../../../api/users/user';
 })
 export class UserComponent implements OnInit {
 
+  MODE_USERS: String = 'users';
+  MODE_USER: String = 'user';
+  MODE_SEND: String = 'send';
+
   @Input() user: User;
+  @Input() mode: String = this.MODE_USERS;
 
   constructor() { }
 
@@ -19,16 +24,15 @@ export class UserComponent implements OnInit {
 
 /*
 
-          <div class="row">
-            <span class="col user_names">{{ user.firstName }}</span>
-            <span class="col user_names">{{ user.middleName }}</span>
-            <span class="col user_names">{{ user.lastName }}</span>
-          </div>
-
-<span class="col user_nickname">{{ user.nickName }}</span>
-
-    <div class="col">
-      <img src="{{ user.image }}" class="user-list-item-image">
-    </div>
+        <img  class="card-img user-list-item-image img-thumbnail" src="{{ user.image }}">
+        <span *ngIf="mode === MODE_USERS" class="user_names">
+          {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
+        </span>
+        <span *ngIf="mode === MODE_USER" class="user_names">
+          {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
+        </span>
+        <span *ngIf="mode === MODE_SEND" class="col user_names">
+          {{ user.firstName | firstSymbol }} {{ user.middleName | firstSymbol }} {{ user.lastName | firstSymbol }}
+        </span>
 
  */

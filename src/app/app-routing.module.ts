@@ -9,7 +9,7 @@ import {UserDetailComponent} from './ui/users/user-detail/user-detail.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/users', pathMatch: 'full' },
-  { path: 'users', component: UsersComponent },
+  { path: 'users', component: MainPanelComponent },
   { path: 'user/:id', component: MainPanelComponent },
   { path: 'send/:id', component: MainPanelComponent },
   { path: 'about', component: AboutComponent },

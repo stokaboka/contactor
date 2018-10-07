@@ -12,8 +12,8 @@ import { UsersService } from '../../../api/users/users.service';
 export class UsersComponent implements OnInit {
 
   @Input() user: User;
-
-  users: Array<User>;
+  @Input() users: Array<User>;
+  @Input() mode: String = 'users';
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +21,7 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.usersService.getUsers()
       .subscribe({
         next: users => this.users = users
