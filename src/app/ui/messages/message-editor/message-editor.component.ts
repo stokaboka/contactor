@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Message} from '../../../api/messages/message';
+import {MessagesService} from '../../../api/messages/messages.service';
+import {Observable} from 'rxjs';
+import {User} from '../../../api/users/user';
 
 @Component({
   selector: 'app-message-editor',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageEditorComponent implements OnInit {
 
-  constructor() { }
+  @Input() user: User;
+
+  message: Message;
+
+  constructor(
+    private messagesService: MessagesService
+  ) { }
 
   ngOnInit() {
+    this.message = new Message('contactor', this.user.id, new Date(), '');
+  }
+
+  onSubmit() {
+    this.messagesService.sendMessage(this.message)
+      .subscribe({
+        next: message => this.message = message
+      });
+
   }
 
 }

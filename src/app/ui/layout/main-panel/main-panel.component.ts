@@ -9,6 +9,8 @@ import {User} from '../../../api/users/user';
 import {UserDetail} from '../../../api/users/user-detail';
 
 import {UserComponent} from '../../users/user/user.component';
+import {Message} from '../../../api/messages/message';
+import {MessagesService} from '../../../api/messages/messages.service';
 
 @Component({
   selector: 'app-main-panel',
@@ -27,13 +29,16 @@ export class MainPanelComponent implements OnInit, OnDestroy {
   user$: Observable<User>;
   detail$: Observable<UserDetail>;
 
+  messages$: Observable<Message[]>;
+
   navEnd: Observable<NavigationEnd>;
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private location: Location,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private messagesService: MessagesService
   ) {
     this.navEnd = router.events.pipe(
       filter(evt => evt instanceof NavigationEnd)
@@ -58,6 +63,12 @@ export class MainPanelComponent implements OnInit, OnDestroy {
       switchMap((params: ParamMap) =>
         this.usersService.getUserDetail( params.get('id') )
       ));
+
+    this.messages$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) =>
+        this.messagesService.getMessages( 'contactor', params.get('id') )
+      ));
+
   }
 
   ngOnDestroy() {

@@ -1,0 +1,14 @@
+.cntr-message{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
+.cntr-message-info{
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.cntr-message-body{
+  margin: 20px;
+}

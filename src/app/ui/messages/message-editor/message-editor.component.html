@@ -1,3 +1,23 @@
-<p>
-  message-editor works!
-</p>
+<div class="card message-editor">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #messageForm="ngForm">
+      <div class="form-group">
+        <label for="messageTextInput">Message</label>
+        <input type="text"
+               class="form-control"
+               id="messageTextInput"
+               name="messageTextInput"
+               required
+               [(ngModel)]="message.text"
+               aria-describedby="Message"
+               placeholder="Enter message">
+        <small id="messageHelp" class="form-text text-muted">Enter message and click "Send".</small>
+      </div>
+      <button type="submit"
+              class="btn btn-primary"
+              [disabled]="!messageForm.form.valid">
+        Send
+      </button>
+    </form>
+  </div>
+</div>

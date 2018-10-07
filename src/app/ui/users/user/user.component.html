@@ -1,22 +1,28 @@
 <li class="users-list-item-deco">
   <a routerLink="/user/{{user.id}}">
-    <div class="row">
+    <div class="user-list-item">
 
-      <div class="col ">
+      <div>
         <img class="user-list-item-image img-thumbnail" src="{{ user.image }}">
       </div>
 
-      <span *ngIf="mode === MODE_USERS" class="col user_names ">
+      <div *ngIf="mode === MODE_USERS" class="user-list-item-text">
+      <span  class="user_names">
         {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
       </span>
+      </div>
 
-      <span *ngIf="mode === MODE_USER" class="col user_names ">
+      <div *ngIf="mode === MODE_USER" class="user-list-item-text">
+      <span class="user_names">
         {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
       </span>
+      </div>
 
-      <span *ngIf="mode === MODE_SEND" class="col user_names ">
-        {{ user.firstName | firstSymbol }} {{ user.middleName | firstSymbol }} {{ user.lastName | firstSymbol }}
+      <div *ngIf="mode === MODE_SEND" class="user-list-item-text">
+      <span  class="user_names">
+        {{ user.firstName | firstSymbol }}{{ user.middleName | firstSymbol }}{{ user.lastName | firstSymbol }}
       </span>
+      </div>
 
     </div>
   </a>

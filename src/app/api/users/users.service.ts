@@ -2,14 +2,9 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { HttpClient } from '@angular/common/http';
 import { User } from './user';
-import { USERS } from './mock-users';
-
 import {UserDetail} from './user-detail';
-import {USERS_DETAILS} from './mock-user-detail';
 
 @Injectable({
   providedIn: 'root'
@@ -19,9 +14,6 @@ export class UsersService {
   constructor(
     private http: HttpClient
   ) {}
-
-  // users$: Observable<User[]>;
-  // userDetails: Observable<UserDetail[]>;
 
   private apiUrl = 'http://contactor.local/api';
   private apiUrlUsers = this.apiUrl + '/users.json';
@@ -68,21 +60,14 @@ export class UsersService {
     }
 
     return 'users';
-
-    // if ( path.startsWith( '/send/' ) ) {
-    //   return 'send';
-    // } else {
-    //   return 'users';
-    // }
   }
 
   getUsers(): Observable<User[]> {
       return this.http.get<User[]>(this.apiUrlUsers)
         .pipe(
           tap(_ => UsersService.log('fetched users')),
-          catchError(this.handleError('getUsers', []))
+          catchError(this.handleError('UsersService::getUsers', []))
         );
-    // return of(USERS);
   }
 
   // getUsers(): Observable<User[]> {
@@ -99,18 +84,18 @@ export class UsersService {
   // );
   // }
 
-  getUser(id: string) {
+  getUser(id: String) {
       return this.getUsers().pipe(
         map((users: User[]) => users.find(user => user.id === id))
       );
   }
 
-  getUserDetail(id: string): Observable<UserDetail> {
+  getUserDetail(id: String): Observable<UserDetail> {
     const url = `${this.apiUrlUserDetail}?id=${id}`;
     return this.http.get<UserDetail>(url)
       .pipe(
         tap(_ => UsersService.log(`fetched user id=${id}`)),
-        catchError(this.handleError<UserDetail>(`getUserDetail id=${id}`))
+        catchError(this.handleError<UserDetail>(`UsersService::getUserDetail id=${id}`))
       );
   }
 

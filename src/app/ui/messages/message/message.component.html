@@ -1,3 +1,10 @@
-<p>
-  message works!
-</p>
+<div class="cntr-message">
+  <div class="cntr-message-info">
+    <div><span>from: </span><span>{{message.from}}</span></div>
+    <div><span>  to: </span><span>{{message.to}}</span></div>
+    <div><span>{{message.datetime | date : 'dd.MM.yy hh:mm' : '+0300'}}</span></div>
+  </div>
+  <div class="cntr-message-body">
+    <span>{{message.text}}</span>
+  </div>
+</div>

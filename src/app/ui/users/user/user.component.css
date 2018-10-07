@@ -17,6 +17,18 @@ li:hover {
   font-weight: bold;
 }
 
+.user-list-item {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+}
+
+.user-list-item-text {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+}
+
 .users-list-item-deco {
   padding: 10px 20px;
 }

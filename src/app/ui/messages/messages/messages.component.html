@@ -1,3 +1,11 @@
-<p>
-  messages works!
-</p>
+<div class="card">
+
+  <h4 *ngIf="user" class="card-header">
+    {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
+  </h4>
+
+  <app-message class="card-body" *ngFor="let message of messages" [message]="message">
+
+  </app-message>
+
+</div>
