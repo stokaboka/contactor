@@ -15,21 +15,22 @@ export class MessageEditorComponent implements OnInit {
   @Output() messageSend = new EventEmitter<Message>();
 
   message: Message;
+  text: String;
 
   constructor(
     private messagesService: MessagesService
   ) { }
 
   ngOnInit() {
-    this.message = new Message('contactor', this.user.id, new Date(), '');
   }
 
   onSubmit() {
+    this.message = new Message('contactor', this.user.id, new Date(), this.text);
     this.messagesService.sendMessage(this.message)
       .subscribe({
         next: message => {
           this.messageSend.emit(message);
-          this.message = new Message('contactor', this.user.id, new Date(), '!!!');
+          this.text = '';
         }
       });
 

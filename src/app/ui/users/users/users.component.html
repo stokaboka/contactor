@@ -1,9 +1,9 @@
 <div class="card">
 
-  <div class="card-body">
-    <ul class="users_list">
+  <div class="card-body users-list-container">
+    <ul class="users-list">
       <app-user
-        class="users_list_item"
+        class="users-list-item"
         *ngFor="let usr of users"
         (click)="onClick(usr)"
         [user]="usr"

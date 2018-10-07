@@ -24,9 +24,9 @@
         [class.col-8]="mode === MODE_SEND"
    >
      <div *ngIf="(user$ | async) as user; else loading">
-        <div *ngIf="(messages$ | async) as messages; else loading">
+
           <app-messages [user]="user" [messages]="messages"></app-messages>
-        </div>
+
         <app-message-editor
           [user]="user"
           (messageSend) = "onMessageSend($event)">

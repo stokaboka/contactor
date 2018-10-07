@@ -70,6 +70,12 @@ export class MainPanelComponent implements OnInit, OnDestroy {
         this.messagesService.getMessages( 'contactor', params.get('id') )
       ));
 
+    this.messages$.subscribe(
+      {
+        next: messages => this.messages = messages
+      }
+    );
+
   }
 
   onMessageSend(message: Message) {

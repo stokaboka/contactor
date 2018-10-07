@@ -1,11 +1,15 @@
-.users_list {
+.users-list {
   padding-left: 0;
   height: 100%;
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-.users_list_item {
+.users-list-container{
+  max-height: 70vh;
+}
+
+.users-list-item {
   cursor: pointer;
 }
 

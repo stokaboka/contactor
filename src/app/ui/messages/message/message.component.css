@@ -2,13 +2,15 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .cntr-message-info{
   display: flex;
   flex-flow: column wrap;
+  font-size: 0.8rem;
 }
 
 .cntr-message-body{
-  margin: 20px;
+  margin: 0 0 0 10px;
 }

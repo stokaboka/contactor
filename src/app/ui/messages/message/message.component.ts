@@ -16,3 +16,8 @@ export class MessageComponent implements OnInit {
   }
 
 }
+
+/*
+    <div><span>from: </span><span>{{message.from}}</span></div>
+    <div><span>  to: </span><span>{{message.to}}</span></div>
+ */
