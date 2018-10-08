@@ -2,7 +2,9 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+
+  margin: 0 0 10px 0;
 }
 
 .cntr-message-info{
@@ -12,5 +14,10 @@
 }
 
 .cntr-message-body{
+  border: #CCCCCC solid 1px;
+  border-radius: 3px;
+  background-color: #EEEEEE;
+  padding: 3px 10px;
+
   margin: 0 0 0 10px;
 }

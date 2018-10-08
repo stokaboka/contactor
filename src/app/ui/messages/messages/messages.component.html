@@ -4,7 +4,7 @@
     {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
   </h4>
 
-  <div class="card-body messages-container">
+  <div #messagesContainer class="card-body messages-container">
     <app-message  *ngFor="let message of messages" [message]="message">
     </app-message>
   </div>

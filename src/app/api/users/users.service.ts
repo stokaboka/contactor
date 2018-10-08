@@ -15,7 +15,8 @@ export class UsersService {
     private http: HttpClient
   ) {}
 
-  private apiUrl = 'http://contactor.local/api';
+  private apiUrl = 'http://contactor.orangem.me/api';
+  // private apiUrl = 'http://contactor.local/api';
   private apiUrlUsers = this.apiUrl + '/users.json';
   private apiUrlUserDetail = this.apiUrl + '/user.json';
 

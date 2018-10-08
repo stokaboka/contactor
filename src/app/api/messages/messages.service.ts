@@ -20,7 +20,8 @@ export class MessagesService {
     private http: HttpClient
   ) { }
 
-  private apiUrl = 'http://contactor.local/api';
+  // private apiUrl = 'http://contactor.local/api';
+  private apiUrl = 'http://contactor.orangem.me/api';
   private apiUrlMassages = this.apiUrl + '/messages.json';
   private apiUrlSendMassage = this.apiUrl + '/send.json';
 
