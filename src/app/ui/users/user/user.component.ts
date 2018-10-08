@@ -12,7 +12,7 @@ export class UserComponent implements OnInit, OnChanges {
   MODE_USER: String = 'user';
   MODE_SEND: String = 'send';
 
-  urlPart: String = 'user';
+  urlPart: String = '/user';
 
   @Input() user: User;
   @Input() mode: String = this.MODE_USERS;
@@ -24,7 +24,7 @@ export class UserComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges) {
     const change = changes['mode'];
-    this.urlPart =  (change.currentValue === this.MODE_SEND) ? 'send' : 'user';
+    this.urlPart =  (change.currentValue === this.MODE_SEND) ? '/send' : '/user';
   }
 
 }

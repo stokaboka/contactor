@@ -1,0 +1,9 @@
+.main-panel-container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: start;
+}
+
+.users-container {
+  padding: 0 3px 0 3px;
+}

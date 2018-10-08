@@ -5,10 +5,10 @@ export class UserDetail {
   info: String;
 
   constructor(
-    id: String,
-    age: Number,
-    city: String,
-    info: String
+    id: String = '',
+    age: Number = 0,
+    city: String = '',
+    info: String = ''
   ) {
     this.id = id;
     this.age = age;

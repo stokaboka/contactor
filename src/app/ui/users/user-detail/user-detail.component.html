@@ -4,7 +4,7 @@
           {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
         </h4>
 
-        <div class="card-body">
+        <div class="card-body user-detail-container">
 
           <img *ngIf="user" class="card-img-top rounded user-detail-image"  src="{{user.image}}" alt="{{ user.firstName }}">
 
@@ -23,6 +23,6 @@
 
         </div>
         <div class="card-footer">
-          <button *ngIf="detail" type="button" class="btn btn-secondary" routerLink="/send/{{ user.id }}">Send message</button>
+          <button *ngIf="user" type="button" class="btn btn-secondary" routerLink="/send/{{ user.id }}">Send message</button>
         </div>
       </div>

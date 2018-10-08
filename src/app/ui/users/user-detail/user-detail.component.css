@@ -7,6 +7,10 @@
   align-items: start;
 }
 
+.user-detail-container {
+  min-height: 58vh;
+}
+
 /*
 TODO change flex-flow: column;
 for small screen

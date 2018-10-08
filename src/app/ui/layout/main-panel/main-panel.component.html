@@ -1,39 +1,30 @@
- <div class="row">
-    <div  [class.col]="mode === MODE_USERS"
-          [class.col-6]="mode === MODE_USER"
-          [class.col-4]="mode === MODE_SEND"
-    >
-      <app-users [users]="users" [mode]="mode"></app-users>
-    </div>
+ <div class="main-panel-container">
 
-   <div *ngIf="mode === MODE_USER"
-        [class.col]="mode === MODE_USERS"
-        [class.col-6]="mode === MODE_USER"
-        [class.col-9]="mode === MODE_SEND"
-   >
-     <div *ngIf="(user$ | async) as user; else loading">
-       <div *ngIf="(detail$ | async) as detail">
-         <app-user-detail [user]="user" [detail]="detail"></app-user-detail>
-       </div>
+     <app-users class="users-container"
+                [@usersModeChange]="mode"
+        [users]="users"
+        [mode]="mode">
+      </app-users>
+
+      <app-user-detail [@detailModeChange]="mode"
+        [user]="user"
+        [detail]="detail"
+        [mode]="mode">
+      </app-user-detail>
+
+     <div [@messagesModeChange]="mode">
+
+      <app-messages
+        [user]="user"
+        [messages]="messages">
+      </app-messages>
+
+      <app-message-editor
+        [user]="user"
+        (messageSend) = "onMessageSend($event)">
+      </app-message-editor>
+
      </div>
-   </div>
-
-   <div *ngIf="mode === MODE_SEND"
-        [class.col]="mode === MODE_USERS"
-        [class.col-6]="mode === MODE_USER"
-        [class.col-8]="mode === MODE_SEND"
-   >
-     <div *ngIf="(user$ | async) as user; else loading">
-
-          <app-messages [user]="user" [messages]="messages"></app-messages>
-
-        <app-message-editor
-          [user]="user"
-          (messageSend) = "onMessageSend($event)">
-        </app-message-editor>
-     </div>
-   </div>
-
 
  </div>
 

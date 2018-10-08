@@ -15,6 +15,7 @@ export class UserDetailComponent implements OnInit {
 
   @Input() user: User;
   @Input() detail: UserDetail;
+  @Input() mode: String = 'users';
 
   userProperties: Array<any>;
   userDetailProperties: Array<any>;

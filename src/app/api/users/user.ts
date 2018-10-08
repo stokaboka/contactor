@@ -7,12 +7,12 @@ export class User {
   image: String;
 
   constructor(
-    id: String,
-    nickName: String,
-    firstName: String,
-    middleName: String,
-    lastName: String,
-    image: String
+    id: String = '',
+    nickName: String = '',
+    firstName: String = '',
+    middleName: String = '',
+    lastName: String = '',
+    image: String = ''
   ) {
     this.id = id;
     this.nickName = nickName;

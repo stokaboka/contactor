@@ -1,4 +1,7 @@
-<div class="card">
+<div
+  class="card"
+  [@emptyLoaded]="loaded ? 'loaded' : 'empty'"
+>
 
   <div class="card-body users-list-container">
     <ul class="users-list">
