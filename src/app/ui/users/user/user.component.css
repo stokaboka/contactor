@@ -20,13 +20,10 @@ li:hover {
 .user-list-item {
   display: flex;
   flex-flow: row wrap;
-  align-content: center;
+  align-items: center;
 }
 
 .user-list-item-text {
-  display: flex;
-  flex-flow: row wrap;
-  align-content: center;
 }
 
 .users-list-item-deco {

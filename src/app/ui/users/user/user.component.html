@@ -6,23 +6,17 @@
         <img class="user-list-item-image img-thumbnail" src="{{ user.image }}">
       </div>
 
-      <div *ngIf="mode === MODE_USERS" class="user-list-item-text">
-      <span  class="user_names">
+      <span *ngIf="mode === MODE_USERS" class="user_names">
         {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
       </span>
-      </div>
 
-      <div *ngIf="mode === MODE_USER" class="user-list-item-text">
-      <span class="user_names">
+      <span *ngIf="mode === MODE_USER" class="user_names">
         {{ user.firstName }} {{ user.middleName }} {{ user.lastName }}
       </span>
-      </div>
 
-      <div *ngIf="mode === MODE_SEND" class="user-list-item-text">
-      <span  class="user_names">
+      <span *ngIf="mode === MODE_SEND" class="user_names">
         {{ user.firstName | firstSymbol }}{{ user.middleName | firstSymbol }}{{ user.lastName | firstSymbol }}
       </span>
-      </div>
 
     </div>
   </a>
